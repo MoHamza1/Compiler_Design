@@ -350,7 +350,7 @@ def formula_to_grammar(grammar,syntax):
     for index in range(len(out_file)):
         out_file[index] += "\n"
 
-    out = open(f"grammar {time.asctime()}.txt", "w")
+    out = open(f"grammar.txt", "w")
     out.writelines(out_file)
     out.close()  # to change file access modes
 
@@ -403,7 +403,7 @@ def formula_to_graph(the_formula, parent):
 print(f"Reading input file in from {sys.argv[1]}")
 
 old_stdout = sys.stdout
-log_file = open(f"parse_log {time.asctime()}.log", "w")
+log_file = open("parse_log.log", "w")
 sys.stdout = log_file
 
 syntax = UserDefinedSyntax(f"{sys.argv[1]}")
@@ -423,7 +423,7 @@ nx.draw_networkx_nodes(G,pos,node_size=500,node_color='w')
 nx.draw_networkx_edges(G,pos,arrows=True)
 nx.draw_networkx_labels(G,pos,labels)
 
-plt.savefig(f'parse_tree {time.asctime()}.png')
+plt.savefig('parse_tree.png')
 
 sys.stdout = old_stdout
 log_file.close()
